@@ -22,10 +22,8 @@ touch $LOCAL_TORRC
 echo $REMOTE_TORRC >> $LOCAL_TORRC
 
 # load tor
-mkdir -p $HOME/Library
-mkdir -p $HOME/Library/LaunchAgents
-ln -sfv /usr/local/opt/tor/*.plist $HOME/Library/LaunchAgents
-launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.tor.plist
+ln -sfv /usr/local/opt/tor/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
 
 # post contents of torprox.sh on github
 # curl file contents

@@ -3,6 +3,9 @@
 echo "Setting up Homebrew..."
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# OSX might prompt you to install command line developer tools... follow prompts
+# Also, Homebrew may require sudo permissions and prompt for password.
+
 echo "Updating Homebrew..."
 brew update
 
@@ -19,27 +22,27 @@ touch $LOCAL_TORRC
 echo $REMOTE_TORRC >> $LOCAL_TORRC
 
 # load tor
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
+launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.tor.plist
 
 # post contents of torprox.sh on github
 # curl file contents
-# write contents to ~/Scripts/tor-proxy-toggle.sh
-mkdir ~/Scripts/
+# write contents to $HOME/Scripts/tor-proxy-toggle.sh
+mkdir $HOME/Scripts/
 
-LOCAL_PROXTOGGLE="~/Scripts/tor-proxy-toggle.sh"
+LOCAL_PROXTOGGLE="$HOME/Scripts/tor-proxy-toggle.sh"
 REMOTE_PROXTOGGLE="$(curl -fsSL https://raw.githubusercontent.com/eschaefer/tor-proxy-toggle/master/tor-proxy-toggle.sh)"
 touch $LOCAL_PROXTOGGLE
 echo $REMOTE_PROXTOGGLE >> $LOCAL_PROXTOGGLE
 
-ZSH="~/.zshrc"
-BASHPROFILE="~/.bash_profile"
+ZSH="$HOME/.zshrc"
+BASHPROFILE="$HOME/.bash_profile"
 if [ -f "$ZSH" ]; then
   echo '# tor proxy' >> $ZSH
-  echo 'alias torprox="bash ~/Scripts/tor-proxy-toggle.sh"' >> $ZSH
+  echo 'alias torprox="bash $HOME/Scripts/tor-proxy-toggle.sh"' >> $ZSH
   source $ZSH
 elif [ -f "$BASHPROFILE" ]; then
   echo '# tor proxy' >> $BASHPROFILE
-  echo 'alias torprox="bash ~/Scripts/tor-proxy-toggle.sh"' >> $BASHPROFILE
+  echo 'alias torprox="bash $HOME/Scripts/tor-proxy-toggle.sh"' >> $BASHPROFILE
   source $BASHPROFILE
 else
   echo "No zsh or bash profile found."

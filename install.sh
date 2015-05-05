@@ -35,13 +35,21 @@ curl -fsSL https://raw.githubusercontent.com/eschaefer/tor-proxy-toggle/master/b
 ZSH="$HOME/.zshrc"
 BASHPROFILE="$HOME/.bash_profile"
 if [ -f "$ZSH" ]; then
-  echo '# tor proxy' >> $ZSH
-  echo 'alias torprox="bash $HOME/Scripts/tor-proxy-toggle.sh"' >> $ZSH
-  source $ZSH
+  if [ grep -q torprox "$ZSH" ]; then
+    echo "zhrc file already has a torprox alias"
+  else
+    echo '# tor proxy' >> $ZSH
+    echo 'alias torprox="bash $HOME/Scripts/tor-proxy-toggle.sh"' >> $ZSH
+    source $ZSH
+  fi
 elif [ -f "$BASHPROFILE" ]; then
-  echo '# tor proxy' >> $BASHPROFILE
-  echo 'alias torprox="bash $HOME/Scripts/tor-proxy-toggle.sh"' >> $BASHPROFILE
-  source $BASHPROFILE
+  if [ grep -q torprox "$BASHPROFILE" ]; then
+    echo "bash_profile file already has a torprox alias"
+  else
+   echo '# tor proxy' >> $BASHPROFILE
+   echo 'alias torprox="bash $HOME/Scripts/tor-proxy-toggle.sh"' >> $BASHPROFILE
+   source $BASHPROFILE
+  fi
 else
   echo "No zsh or bash profile found... setting one up..."
   touch $HOME/.bash_profile

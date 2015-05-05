@@ -59,5 +59,5 @@ fi
 
 # try toggling the tor proxy
 # can see the result of this in Network preferences > Proxies > SOCKS proxy
+bash $HOME/Scripts/tor-proxy-toggle.sh
 source $BASHPROFILE
-torprox

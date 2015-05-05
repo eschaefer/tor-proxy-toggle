@@ -22,6 +22,7 @@ touch $LOCAL_TORRC
 echo $REMOTE_TORRC >> $LOCAL_TORRC
 
 # load tor
+mkdir -p ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/tor/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
 

@@ -17,9 +17,7 @@ echo "Configuring Tor to prefer US-based exit nodes..."
 # curl file contents
 # write contents to /usr/local/etc/tor/torrc
 LOCAL_TORRC="/usr/local/etc/tor/torrc"
-REMOTE_TORRC="$(curl -fsSL https://raw.githubusercontent.com/eschaefer/tor-proxy-toggle/master/bin/torrc)"
-touch $LOCAL_TORRC
-echo $REMOTE_TORRC >> $LOCAL_TORRC
+curl -fsSL https://raw.githubusercontent.com/eschaefer/tor-proxy-toggle/master/bin/torrc -o $LOCAL_TORRC
 
 # load tor
 mkdir -p ~/Library/LaunchAgents
@@ -32,9 +30,7 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
 mkdir $HOME/Scripts/
 
 LOCAL_PROXTOGGLE="$HOME/Scripts/tor-proxy-toggle.sh"
-REMOTE_PROXTOGGLE="$(curl -fsSL https://raw.githubusercontent.com/eschaefer/tor-proxy-toggle/master/bin/tor-proxy-toggle.sh)"
-touch $LOCAL_PROXTOGGLE
-echo $REMOTE_PROXTOGGLE >> $LOCAL_PROXTOGGLE
+curl -fsSL https://raw.githubusercontent.com/eschaefer/tor-proxy-toggle/master/bin/tor-proxy-toggle.sh -o $LOCAL_PROXTOGGLE
 
 ZSH="$HOME/.zshrc"
 BASHPROFILE="$HOME/.bash_profile"

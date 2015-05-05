@@ -13,9 +13,6 @@ echo "Installing Tor..."
 brew install tor
 
 echo "Configuring Tor to prefer US-based exit nodes..."
-# post contents of torrc on github
-# curl file contents
-# write contents to /usr/local/etc/tor/torrc
 LOCAL_TORRC="/usr/local/etc/tor/torrc"
 curl -fsSL https://raw.githubusercontent.com/eschaefer/tor-proxy-toggle/master/bin/torrc -o $LOCAL_TORRC
 
@@ -24,9 +21,6 @@ mkdir -p ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/tor/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist
 
-# post contents of torprox.sh on github
-# curl file contents
-# write contents to $HOME/Scripts/tor-proxy-toggle.sh
 mkdir $HOME/Scripts/
 
 LOCAL_PROXTOGGLE="$HOME/Scripts/tor-proxy-toggle.sh"
@@ -59,5 +53,5 @@ fi
 
 # try toggling the tor proxy
 # can see the result of this in Network preferences > Proxies > SOCKS proxy
-bash $HOME/Scripts/tor-proxy-toggle.sh
+# or test your new IP address: http://whatismyipaddress.com
 source $BASHPROFILE

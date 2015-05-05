@@ -19,6 +19,7 @@ $ bash install.sh
 ### Notes
 - OSX might prompt you to install command line developer tools... follow those prompts.
 - Also, Homebrew may require `sudo` permissions and prompt you for your password.
+- There are probably installation issues for all kinds of edge cases that I didn't think of. Feel free to contribute a pull request, or [file an issue](https://github.com/eschaefer/tor-proxy-toggle/issues)
 
 ### Usage
 

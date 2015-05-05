@@ -45,7 +45,10 @@ elif [ -f "$BASHPROFILE" ]; then
   echo 'alias torprox="bash $HOME/Scripts/tor-proxy-toggle.sh"' >> $BASHPROFILE
   source $BASHPROFILE
 else
-  echo "No zsh or bash profile found."
+  echo "No zsh or bash profile found... setting one up..."
+  touch $HOME/.bash_profile
+  echo 'alias torprox="bash $HOME/Scripts/tor-proxy-toggle.sh"' >> $BASHPROFILE
+  source $BASHPROFILE
 fi
 
 # try toggling the tor proxy

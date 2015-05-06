@@ -18,6 +18,8 @@ $ cd tor-proxy-toggle/
 $ bash install.sh
 ```
 
+**If `torprox` doesn't become available in the same window, open a new terminal window and try it there.**
+
 ### Notes
 - OSX might prompt you to install command line developer tools... follow those prompts.
 - Also, Homebrew may require `sudo` permissions and prompt you for your password.
@@ -35,5 +37,6 @@ Check your new IP address from [whatismyipaddress.com](http://whatismyipaddress.
 
 ### TODO:
 - Support older versions of OSX (`networksetup` has different syntax, params, etc)
+- Add option to select preferred country as exit node.
 - Refactor, DRY
 - Better fail messages

@@ -32,3 +32,8 @@ $ torprox
 ```
 
 Check your new IP address from [whatismyipaddress.com](http://whatismyipaddress.com) or something like that.
+
+### TODO:
+- Support older versions of OSX (`networksetup` has different syntax, params, etc)
+- Refactor, DRY
+- Better fail messages

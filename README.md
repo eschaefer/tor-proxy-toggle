@@ -18,7 +18,7 @@ $ cd tor-proxy-toggle/
 $ bash install.sh
 ```
 
-**If `torprox` doesn't become available in the same window, open a new terminal window and try it there.**
+**After installation, if `torprox` doesn't become available in the same window, open a new terminal window and try it there.**
 
 ### Notes
 - OSX might prompt you to install command line developer tools... follow those prompts.
